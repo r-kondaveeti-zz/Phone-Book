@@ -43,7 +43,7 @@
 
   		<br>
 
-        <button type="submit" class="pure-button pure-button-primary">Update</button>  <a href="./deleteContact" class="pure-button pure-button-primary" role="button">Delete</a>
+        <button type="submit" class="pure-button pure-button-primary">Update</button>  <a href="./deleteContact?id=${contact.id}" class="pure-button pure-button-primary" role="button">Delete</a>
     </fieldset>
    
 </form>

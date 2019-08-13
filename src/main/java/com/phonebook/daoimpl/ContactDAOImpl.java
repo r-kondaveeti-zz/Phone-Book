@@ -58,11 +58,18 @@ public class ContactDAOImpl extends BaseDAO implements ContactDAO {
 		map.put("phonenumber", contact.getPhonenumber());
 		map.put("email", contact.getEmail());
 		map.put("user_id", contact.getUser_id());
-		System.out.println(contact.getLast_name());
-		System.out.println(contact.getId());
 		KeyHolder kh = new GeneratedKeyHolder(); //takes generated id from database, useful for rest apis
 		
 		SqlParameterSource ps = new MapSqlParameterSource(map);
 	    getNamedParameterJdbcTemplate().update(sql, ps,kh);
+	}
+	
+	public void delete(int id) {
+		String sql = "DELETE FROM contacts WHERE id="+id;
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		KeyHolder kh = new GeneratedKeyHolder(); //takes generated id from database, useful for rest apis
+		
+		SqlParameterSource ps = new MapSqlParameterSource(map);
+		getNamedParameterJdbcTemplate().update(sql, ps, kh);
 	}
 }

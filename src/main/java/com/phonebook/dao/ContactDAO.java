@@ -9,4 +9,5 @@ public interface ContactDAO {
 	List<Contact> findAllContacts();
 	Contact findContact(int id);
 	void update(Contact contact);
+	void delete(int id);
 }

@@ -39,9 +39,14 @@ public class MainController {
 	@RequestMapping("/updateContact")
 	public String updateContact(@ModelAttribute("contact") Contact contact, ModelMap map) {
 		daoimpl.update(contact);
-		System.out.println(contact.getLast_name());
 		map.addAttribute("contacts", daoimpl.findAllContacts());
 		return "list";
+	}
+	
+	@RequestMapping("/deleteContact")
+	public String deleteContact(@RequestParam("id") int contactId) {
+		daoimpl.delete(contactId);
+		return "redirect:/listAllContacts";
 	}
 	
 }
