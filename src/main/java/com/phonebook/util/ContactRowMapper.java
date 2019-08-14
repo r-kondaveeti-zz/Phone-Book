@@ -7,8 +7,8 @@ import org.springframework.jdbc.core.RowMapper;
  
 import com.phonebook.model.Contact;
  
-public class ContactRowMapper implements RowMapper {
- 
+public class ContactRowMapper implements RowMapper<Contact> {
+	
     public Contact mapRow(ResultSet rs, int rowNum) throws SQLException {
         Contact contact = new Contact();
         contact.setId(rs.getInt("id"));
@@ -17,7 +17,7 @@ public class ContactRowMapper implements RowMapper {
         contact.setEmail(rs.getString("email"));
         contact.setPhonenumber(rs.getInt("phonenumber"));
         contact.setUser_id(rs.getInt("user_id"));
- 
         return contact;
     }
+    
 }

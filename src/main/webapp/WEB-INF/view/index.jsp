@@ -1,7 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<%@ page isELIgnored ="false" %>
 <!doctype html>
 <html>
   <head>
@@ -13,30 +9,37 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
   </head>
   <body>
+  <br>
     <div class="container">
-      <form class="pure-form pure-form-stacked" action="./updateContact?id=${contact.id}" method="post">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="./addContact" role="tab" aria-controls="nav-home" aria-selected="true">Add Contact</a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="./listAllContacts" role="tab" aria-controls="nav-profile" aria-selected="false">All Contacts</a>
+        </div>
+      </nav>
+      <form class="pure-form pure-form-stacked" action="./save" method="post">
         <fieldset>
-          <legend>Edit Contact</legend>
+          <legend>Add Contact</legend>
           <div class="pure-g">
             <div class="pure-u-1 pure-u-md-1-3">
               <label for="first-name">First Name</label>
-              <input id="first-name" class="pure-u-23-24" type="text" name="first_name" value="${contact.first_name}">
+              <input id="first-name" class="pure-u-23-24" type="text" name="first_name">
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
               <label for="last-name">Last Name</label>
-              <input id="last-name" class="pure-u-23-24" type="text" name="last_name" value="${contact.last_name}">
+              <input id="last-name" class="pure-u-23-24" type="text" name="last_name">
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
               <label for="email">E-Mail</label>
-              <input id="email" class="pure-u-23-24" type="email" name="email" value="${contact.email}" required>
+              <input id="email" class="pure-u-23-24" type="email" name="email" required>
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
               <label for="phoneNumber">Phone Number</label>
-              <input id="phoneNumber" class="pure-u-23-24" type="text" name="phonenumber" value="${contact.phonenumber}">
+              <input id="phoneNumber" class="pure-u-23-24" type="text" name="phonenumber">
             </div>
           </div>
           <br>
-          <button type="submit" class="pure-button pure-button-primary">Update</button>  <a href="./deleteContact?id=${contact.id}" class="pure-button pure-button-primary" role="button">Delete</a>
+          <button type="submit" class="pure-button pure-button-primary">Submit</button>
         </fieldset>
       </form>
     </div>
